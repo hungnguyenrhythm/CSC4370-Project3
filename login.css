@@ -1,0 +1,12 @@
+h1 {
+    text-align: center;
+}
+#loginForm {
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+fieldset {
+    border-radius: 10px;
+} 
