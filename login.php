@@ -19,7 +19,7 @@
             <h1>Sign Up to your account</h1>
             <fieldset>
                 <legend>Sign Up</legend>
-                <form method="post">
+                <form method="post" action="./signup.php">
                     <label for="fName">First Name: </label><input type="text" id="fName" name="fName" size="15" required><br>
                     <label for="lName">Last Name: </label><input type="text" id="lName" name="lName" size="15" required><br>
                     <label for="email">Email Address: </label><input type="text" id="email" name="email" size="30" required><br>
