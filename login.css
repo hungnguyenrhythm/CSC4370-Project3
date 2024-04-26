@@ -1,12 +1,27 @@
 h1 {
     text-align: center;
 }
-#loginForm {
+#loginForm, #signupForm, #navigation {
     position: relative;
     margin: auto;
-    width: 50%;
+    width: 30%;
 }
 
+#navigation button{
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+}
 fieldset {
     border-radius: 10px;
 } 
+
+label{
+    float: left;
+    width: 10em;
+    margin: 10px 0px;
+}
+
+input[type="text"] {
+    margin: 10px 0px;
+}
