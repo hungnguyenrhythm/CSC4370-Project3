@@ -112,6 +112,7 @@ a:hover {
 
 #signin-form input[type="email"],
 #signin-form input[type="password"],
+#signin-form input[type="text"],
 #signin-form button {
   width: 100%;
   margin-bottom: 10px;
