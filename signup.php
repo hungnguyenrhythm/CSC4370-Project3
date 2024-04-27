@@ -3,18 +3,18 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $host = "localhost";
-$username = "lcheong1";
-$password = "lcheong1";
-$database = "lcheong1";
+$username = "hnguyen284";
+$password = "hnguyen284";
+$database = "hnguyen284";
 
 // Response object
 $response = array();
 
 // check if form data is set
-if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['role'])) {
+if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['role'])) {
     $user = $_POST['username'];
     $email = $_POST['email'];
-    $pass = $_POST['password'];
+    $pass = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
     // create connection
@@ -58,5 +58,6 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['passwor
 }
 
 // Return JSON response
+header("Location:homepage.html");
 echo json_encode($response);
 ?>
