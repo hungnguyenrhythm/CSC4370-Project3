@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <script src="signin.js"></script>
   <nav class="header">
     <div class="nav-links">
       <a href="#">Buy</a>
@@ -32,9 +33,17 @@
         <div id="signin-form">
           <h2>Sign In</h2>
           <form action="signin.php" method="post">
-            <input type="text" name="user" placeholder="Username" required>
-            <input type="email" name="Email" placeholder="Email" required>
-            <input type="password" name="Password" placeholder="Password" required>
+            <label for="User">Username:</label>
+            <p id="warning"></p>
+            <input type="text" name="user" id="User" placeholder="E.x.: jdoe123" 
+            onblur="checkUser()" required pattern="[^ ]+" title="Needs a character, can't be space only">
+            <label for="Email">Email:</label>
+            <p id="warnEmail"></p>
+            <input type="email" name="Email" id="Email" placeholder="E.x.: jdoe@gmail.com" 
+            onblur="checkEmail()" required pattern=".+@.+\..+">
+            <label for="Password">Password:</label>
+            <p id="warnPassword"></p>
+            <input type="password" name="Password" id="Password" placeholder="Password" required onblur="checkPassword()">
             <button type="submit">Sign In</button>
             <p>Don't have an account? <a href="#" id="create-account-link">Create one</a></p>
           </form>
@@ -139,9 +148,8 @@
   <div class="about-text">
     <h2>Our Services</h2><br>
     <p>Currently, we provide a platform for people who are looking to sell their properties
-      to be able to add their properties to the market privately without any interferences
-      from the government. It allows users to come up with their own prices for the house without any regulations
-      like other platforms. If you feel the property worths something, NAME THAT WORTH.
+      to be able to add their properties to the market privately and name their own prices without any interferences
+      from the government.
     </p>
   </div>
 </div>

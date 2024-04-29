@@ -5,10 +5,10 @@
   <meta charset="utf-8" />
   <title>Homepage</title>
   <link href="homepage.css" rel="stylesheet">
-
 </head>
 
 <body>
+  <script src="signin.js"></script>
   <nav class="header">
     <div class="nav-links">
       <a href="#">Buy</a>
@@ -40,18 +40,28 @@
     <div class="popup" id="popup">
       <div class="popup-content">
         <span class="close" id="close">&times;</span>
+
         <!-- Sign In Form-->
         <div id="signin-form">
           <h2>Sign In</h2>
           <form action="signin.php" method="post">
-            <input type="text" name="user" placeholder="Username" required>
-            <input type="email" name="Email" placeholder="Email" required>
-            <input type="password" name="Password" placeholder="Password" required>
+            <label for="User">Username:</label>
+            <p id="warning"></p>
+            <input type="text" name="user" id="User" placeholder="E.x.: jdoe123" 
+            onblur="checkUser()" required pattern="[^ ]+" title="Needs a character, can't be space only">
+            <label for="Email">Email:</label>
+            <p id="warnEmail"></p>
+            <input type="email" name="Email" id="Email" placeholder="E.x.: jdoe@gmail.com" 
+            onblur="checkEmail()" required pattern=".+@.+\..+">
+            <label for="Password">Password:</label>
+            <p id="warnPassword"></p>
+            <input type="password" name="Password" id="Password" placeholder="Password" required onblur="checkPassword()">
             <button type="submit">Sign In</button>
             <p>Don't have an account? <a href="#" id="create-account-link">Create one</a></p>
           </form>
         </div>
 
+        <!--Sign Up Form-->
         <form action="signup.php" method="post" id="create-account-form" style="display: none;">
           <h2>Create Account</h2>
           <input type="text" id="username" name="username" placeholder="Username" required>
