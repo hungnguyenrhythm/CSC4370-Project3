@@ -1,16 +1,13 @@
 <?php
     session_start();
-    if (isset($_COOKIE["user"])) {
-        unset($_COOKIE["user"]);
-        setcookie("user", "", -1, "/");
-    }
-
     if (!isset($_SESSION["username"])) {
         header("Location: homepage.html");
         exit;
     }
 
     if (isset($_POST["signOut"])) {
+        unset($_COOKIE["user"]);
+        setcookie("user", "", -1, "/");
         unset($_SESSION["username"]);
         session_destroy();
         session_write_close();
