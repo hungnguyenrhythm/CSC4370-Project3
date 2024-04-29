@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $host = "localhost";
-$username = "lcheong1";
-$password = "lcheong1";
-$database = "lcheong1";
+$username = "hnguyen284";
+$password = "hnguyen284";
+$database = "hnguyen284";
 
 // Response object
 $response = array();

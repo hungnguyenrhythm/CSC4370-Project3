@@ -4,9 +4,9 @@
     ini_set('display_errors', 1);
     
     $host = "localhost";
-    $username = "lcheong1";
-    $password = "lcheong1";
-    $database = "lcheong1";
+    $username = "hnguyen284";
+    $password = "hnguyen284";
+    $database = "hnguyen284";
 
     // Check if information has really been entered in the Sign In Form
     if (isset($_POST["user"]) and isset($_POST["Email"]) and isset($_POST["Password"])) {
