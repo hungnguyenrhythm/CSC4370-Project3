@@ -30,13 +30,13 @@
     // Find the matching user
     if ($res->num_rows > 0) {
         while ($row = $res->fetch_assoc()) {
-            if ($user = $row["username"] and $email = $row["email"] and password_verify($pass, $row["password"])) {
+            if ($user == $row["username"] and $email == $row["email"] and password_verify($pass, $row["password"])) {
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["username"] = $user;
                 setcookie("user", $_SESSION["username"], time() + (86400 * 30), "/");
                 header("Location: test.php");
             } else {
-                echo "<p>Username or email or password don't match. <a href=\"homepage.html\">Click here to go back to the main page.</a></p>";
+                header("Location:homepage.html");
             }
         }
     } else {
