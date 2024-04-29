@@ -1,11 +1,10 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
 $host = "localhost";
-$username = "hnguyen284";
-$password = "hnguyen284";
-$database = "hnguyen284";
+$username = "lcheong1";
+$password = "lcheong1";
+$database = "lcheong1";
 
 // Response object
 $response = array();
@@ -34,22 +33,22 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])
     // if username already exists, set error message
     if ($result->num_rows > 0) {
         $response['success'] = false;
-        $response['message'] = "Username already exists. Please choose a different username.";
+        $response['message'] = "Username already exists. Please choose a different username." . "<a href='homepage.html'>Click here to go back to the main page.";
     } else {
         $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $user, $email, $pass, $role);
-
         if ($stmt->execute()) {
             $response['success'] = true;
-            $response['message'] = "New record created successfully";
+            $response['message'] = "New record created successfully." . "<a href='homepage.html'> Click here to go back to the main page.";
         } else {
             $response['success'] = false;
             $response['message'] = "Error: " . $stmt->error;
         }
-    }
-  
-    $stmt->close();
 
+        
+    }
+
+    $stmt->close();
     // close connection
     $conn->close();
 } else {
@@ -57,7 +56,9 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])
     $response['message'] = "Form data is missing.";
 }
 
-// Return JSON response
-header("Location:homepage.html");
+// Output JSON response
 echo json_encode($response);
+
+// Optionally, you can redirect after outputting the response
+//header("Location:homepage.html");
 ?>

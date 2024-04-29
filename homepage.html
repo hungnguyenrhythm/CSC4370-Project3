@@ -9,15 +9,20 @@
 </head>
 
 <body>
-  <div class="header">
-    <a href="homepage.html">
-      <img src="img/logo4.png">
-    </a>
-    <a>Buy</a>
-    <a>Sell</a>
-    <a href="about.html">About</a>
+  <nav class="header">
+    <div class="nav-links">
+      <a href="#">Buy</a>
+      <a href="#">Sell</a>
+    </div>
+    <div class="header-image">
+      <a href="homepage.html">
+        <img src="img/logo4.png" alt="Homepage">
+      </a>
+    </div>
     <button id="signin-btn">Sign In</button>
-  </div>
+    
+  </nav>
+
 
   <div class="images">
     <div class="image-container">
@@ -29,8 +34,7 @@
     </div>
   </div>
 
-  <div class="content">
-
+  <div class="signin-content">
     <div class="popup" id="popup">
       <div class="popup-content">
         <span class="close" id="close">&times;</span>
@@ -38,21 +42,14 @@
         <div id="signin-form">
           <h2>Sign In</h2>
           <form action="signin.php" method="post">
-          <input type="text" name="user" placeholder="Username" required>
-          <input type="email" name="Email" placeholder="Email" required>
-          <input type="password" name="Password" placeholder="Password" required>
-          <button type="submit">Sign In</button>
-          <p>Don't have an account? <a href="#" id="create-account-link">Create one</a></p>
+            <input type="text" name="user" placeholder="Username" required>
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <button type="submit">Sign In</button>
+            <p>Don't have an account? <a href="#" id="create-account-link">Create one</a></p>
           </form>
         </div>
-        <!--
-        <div id="create-account-form" style="display: none;">
-          <h2>Create Account</h2>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-          <button type="submit">Create Account</button>
-        </div>
-        -->
+
         <form action="signup.php" method="post" id="create-account-form" style="display: none;">
           <h2>Create Account</h2>
           <input type="text" id="username" name="username" placeholder="Username" required>
@@ -60,14 +57,114 @@
           <input type="password" id="pass" name="pass" placeholder="Password" required>
           <label for="role">Role:</label><br>
           <input type="radio" id="buyer" name="role" value="buyer" required>
-          <label for="buyer">Buyer</label>
+          <label for="buyer">Buyer</label><br>
           <input type="radio" id="seller" name="role" value="seller" required>
           <label for="seller">Seller</label><br>
+          <input type="radio" id="admin" name="role" value="admin" required>
+          <label for="seller">Admin</label><br>
           <button type="submit">Create Account</button>
+          <p>Already have an account? <a href="#" id="signin-link">Sign In</a></p>
         </form>
       </div>
     </div>
   </div>
+
+  <div class="description">
+    <p>Who are we?</p>
+    <p>By uniting buyers and sellers on a single, user-friendly platform, Property World hopes to transform the real
+      estate industry. Our goal is to streamline the real estate transaction process, increasing its effectiveness,
+      transparency, and accessibility for all parties.</p>
+  </div>
+  <br><br>
+
+  <div class="service-header">
+    <span style="color:#325e7d;font-weight:bold; font-size: 50px; margin-left:6%; margin-top: 20px;">Quality
+      Service</span>
+  </div>
+  <div class="service-content">
+    <div class="service-item">
+      <img src="img/seller.png">
+      <p>Sellers can create comprehensive property listings, showcasing all the key features and values of their
+        properties on individual cards</p>
+      <a href="" class="button">Sell</a>
+    </div>
+    <div class="service-item">
+      <img src="img/buyer1.png">
+      <p>Explore our extensive collection of available properties and curate your personalized wishlist by selecting the
+        ones that best match your preferences</p>
+      <a href="" class="button">Buy</a>
+    </div>
+  </div>
+
+  <div class="split-content">
+    <div class="firsthalf">
+      <p>Why Choose Us?</p>
+      <ul id="featureList">
+        <li class="featureItem">
+          <div>
+            <strong>User-Centric Approach:</strong> We prioritize user experience and satisfaction above all else,
+            constantly striving to enhance our platform's usability and functionality.
+          </div>
+        </li>
+        <li class="featureItem">
+          <div>
+            <strong>Innovation:</strong> We embrace innovation and technology to stay ahead of the curve, continuously
+            introducing new features and tools to improve the user experience.
+          </div>
+        </li>
+        <li class="featureItem">
+          <div>
+            <strong>Transparency:</strong> We believe in transparency and honesty, ensuring that both buyers and sellers
+            have access to accurate information and fair deals.
+          </div>
+        </li>
+      </ul>
+      <div class="dots">
+        <span class="dot" onclick="showFeature(1)"></span>
+        <span class="dot" onclick="showFeature(2)"></span>
+        <span class="dot" onclick="showFeature(3)"></span>
+      </div>
+    </div>
+
+    <div class="secondhalf">
+
+    </div>
+  </div>
+
+  <div class="attract-customers">
+    <p style="font-size:35px ;">YOU come first</p>
+    <p style="font-size: 18px">We believe in building long-lasting relationships with our clients by maintaining a
+      robust online presence with user-friendly property search tools and delivering exceptional customer service to
+      foster a culture of trust and satisfaction.</p>
+    <p style="margin-bottom: 70px;">Join Propery World today and discover a smarter way to buy and sell properties!</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-sectio-logo">
+        <img src="img/logo-white.png" style="width: 250px;">
+        <div id="line" style="border-bottom: 1px solid white ;"></div>
+      </div>
+      <div class="footer-section-contact">
+        <h2>Contact Us</h2>
+        <p>Email: propertyworld@prtywrld.com</p>
+        <p>Phone: +6789998212</p>
+      </div>
+      <div class="footer-section-links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    &copy; 2024 Propery World. All rights reserved.
+  </div>
+
 
 
 
@@ -79,8 +176,6 @@
     const signinForm = document.getElementById('signin-form');
     const createAccountLink = document.getElementById('create-account-link');
     const createAccountForm = document.getElementById('create-account-form');
-
-
 
     function clearInputFields() {
       const inputFields = popup.querySelectorAll('input');
@@ -116,6 +211,46 @@
       signinForm.style.display = 'none';
       createAccountForm.style.display = 'block';
     });
+
+
+    //signin link
+    const signinLink = document.getElementById('signin-link');
+    signinLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      signinForm.style.display = 'block';
+      createAccountForm.style.display = 'none';
+    });
+    
+
+    //button-scroll functionality
+    const featureItems = document.querySelectorAll('.featureItem');
+
+    //only the selected feature item is displayed 
+    function hideAllFeatures() {
+      featureItems.forEach(item => {
+        item.style.display = 'none';
+      });
+    }
+    //only the currently selected dot is highlighted, basically removing active from all dots
+    function removeActiveClass() {
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach(dot => {
+        dot.classList.remove('active');
+      });
+    }
+
+    //function to show a specific list item and mark the associated dot as active
+    function showFeature(index) {
+      hideAllFeatures();
+      removeActiveClass();
+      featureItems[index - 1].style.display = 'block';
+      const dot = document.querySelector(`.dot:nth-child(${index})`);
+      dot.classList.add('active');
+    }
+
+    //shows the first item by default
+    showFeature(1);
+
   </script>
 
 
