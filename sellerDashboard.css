@@ -1,0 +1,76 @@
+button#add {
+	position: fixed;
+	z-index: 2;
+	bottom: 35px;
+	right: 35px;
+	width: 100px;
+	height: 100px;
+	font-size: 42pt;
+}
+#container1 {
+	display: table-row;
+}
+form h1 {
+	display: table-cell;
+}
+button#close {
+	color: red;
+	display: table-cell;
+	margin-left: auto;
+	float: right;
+}
+form {
+	position: fixed;
+	width: 425px;
+	right: 35px;
+	bottom: 175px;
+	border: 1px solid black;
+	padding: 15px;
+	display: none;
+	background-color: white;;
+}
+form .required {
+	color: red;
+}
+form p {
+	display: table-row;
+}
+form label {
+	padding-bottom: 15px;
+}
+label, input, textarea {
+	display: table-cell;
+}
+input[type="text"], textarea {
+	width: 100%;
+}
+textarea {
+	resize: none;
+}
+#container2 {
+	display: flex;
+	justify-content: space-between;
+}
+#container2 button {
+	background: none;
+	border: none;
+	border-radius: 25%;
+	-webkit-border-radius: 25%;
+	-moz-border-radius: 25%;
+	-ms-border-radius: 25%;
+	-o-border-radius: 25%;
+}
+#container2 button:hover {
+	background-color: rgba(0,0,0,.1);
+}
+img {
+	width: 50px;
+	height: 50px;
+}
+.card {
+	width: 90%;
+	margin: auto;
+	background-color: antiquewhite;
+	border: 1px solid black;
+	padding: 5px;
+}
