@@ -1,5 +1,19 @@
 <?php
 session_start();
+if (!isset($_SESSION["username"])) {
+	header("Location: homepage.html");
+	exit;
+}
+
+if (isset($_POST["signOut"])) {
+	unset($_COOKIE["user"]);
+	setcookie("user", "", -1, "/");
+	unset($_SESSION["username"]);
+	session_destroy();
+	session_write_close();
+	header("Location: homepage.html");
+	exit;
+}
 function connect(){
 	$servername = "localhost";
 	$username = "hnguyen284";
@@ -73,12 +87,47 @@ if (isset($_POST["submit"])) {
 		<link href="dashboard.css" rel="stylesheet">
 		<script>
 			function openForm() {
-				document.getElementsByTagName("form")[0].style.display = "table";
+				document.getElementsByTagName("form")[1].style.display = "table";
 				document.getElementById("open").disabled = true;
 			}
 			function closeForm() {
-				document.getElementsByTagName("form")[0].style.display = "none";
+				document.getElementsByTagName("form")[1].style.display = "none";
 				document.getElementById("open").disabled = false;
+			}
+
+			function signOut() {
+				document.getElementsByTagName("form")[0].style.display = "table";
+				document.getElementById("signout").disabled = true;
+			}
+
+			function cancel() {
+				document.getElementsByTagName("form")[0].style.display = "none";
+				document.getElementById("signout").disabled = false;
+			}
+			function addPropertyCard() {
+				let dashboard = document.getElementById("dashboard");
+				var div = document.createElement("div");
+				div.classList.add("card");
+				let arr = {
+					"address" : document.getElementById("address").value,
+					"city" : document.getElementById("city").value,
+					"state" : document.getElementById("state").value,
+					"zip" : document.getElementById("zip").value,
+					"price" : document.getElementById("price").value,
+					"bedroom numbers" : document.getElementById("beds").value,
+					"bathroom numbers" : document.getElementById("baths").value,
+					"age" : document.getElementById("age").value,
+					"acquisition date" : document.getElementById("acquisition").value,
+					"Extra Information" : document.getElementById("extra").value,
+				};
+				var result = "";
+				for (let key in arr) {
+					if (arr.hasOwnProperty(key)) {
+						result += `<p>${key}: ${arr[key]}</p>`;
+					}
+				}
+				div.textContent = result;
+				dashboard.appendChild(div);
 			}
 		</script>
 	</head>
@@ -90,6 +139,13 @@ if (isset($_POST["submit"])) {
 				</a>
 			</div>
 		</nav>
+		<div>
+			<form method="post" action="./dashboard.php">
+			<button id="Cancel" onclick="cancel()">Cancel</button>
+			<input type="submit"name="signOut" value="Sign Out">
+			</form>
+		</div>
+		<button id="signout" onclick="signOut()">SignOut</button>
 		<button id="open" onclick="openForm()">+</button>
 		<form method="post" action="./dashboard.php" id="sellerForm">
 			<div id="form-header">
@@ -98,47 +154,46 @@ if (isset($_POST["submit"])) {
 			</div>
 			<p>
 				<label for="address">Address<span class="required">*</span>:</label>
-				<input type="text" name="address" required /><br>
+				<input type="text" name="address" id="address" required /><br>
 			</p>
 			<p>
 				<label for="city">City<span class="required">*</span>:</label>
-				<input type="text" name="city" required /><br>
+				<input type="text" name="city" id="city" required /><br>
 			</p>
 			<p>
 				<label for="state">State<span class="required">*</span>:</label>
-				<input type="text" name="state" required /><br>
+				<input type="text" name="state" id="state" required /><br>
 			</p>
 			<p>
 				<label for="zip">Zip<span class="required">*</span>:</label>
-				<input type="text" name="zip" required /><br>
+				<input type="text" name="zip" id="zip" required /><br>
 			</p>
 			<p>
 				<label for="price">Listing Price<span class="required">*</span>:</label>
-				<input type="text" name="price" required /><br>
+				<input type="text" name="price" id="price" required /><br>
 			</p>
 			<p>
 				<label for="beds">Number of Bedrooms<span class="required">*</span>:</label>
-				<input type="text" name="beds" required /><br>
+				<input type="text" name="beds" id="beds" required /><br>
 			</p>
 			<p>
 				<label for="baths">Number of Bathrooms<span class="required">*</span>:</label>
-				<input type="text" name="baths" required /><br>
+				<input type="text" name="baths" id="baths" required /><br>
 			</p>
 			<p>
 				<label for="age">Property Age:</label>
-				<input type="text" name="age" /><br>
+				<input type="text" name="age" id="age" /><br>
 			</p>
 			<p>
 				<label for="acquisition">Acquisition Date:</label>
-				<input type="date" name="acquisition" /><br>
+				<input type="date" name="acquisition" id="acquisition"/><br>
 			</p>
 			<p>
 				<label for="extra">Additional Details:</label>
-				<textarea name="extra"></textarea><br>
-				<input type="submit" name="submit" onsubmit="addProperty()" value="Submit" />
+				<textarea name="extra" id="extra"></textarea><br>
+				<input type="submit" id="submit" name="submit" onclick="addPropertyCard()" value="Submit" />
 		</form>
-		<div class="dashboard">
-			<div class="card"></div>
+		<div id="dashboard">
 		</div>
 		<footer class="footer">
 			<div class="footer-content">

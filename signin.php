@@ -34,7 +34,7 @@
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["username"] = $user;
                 setcookie("user", $_SESSION["username"], time() + (86400 * 30), "/");
-                header("Location: test.php");
+                header("Location: dashboard.php");
             } else {
                 header("Location:homepage.html");
             }
