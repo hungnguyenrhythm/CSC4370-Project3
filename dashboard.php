@@ -24,7 +24,7 @@
 			</div>
 		</nav>
 		<button id="open" onclick="openForm()">+</button>
-		<form method="post" action="./dashboard.php">
+		<form method="post" action="./dashboard.php" id="sellerForm">
 			<div id="form-header">
 				<h1>Add Property</h1>
 				<button onclick="closeForm()" id="close">X</button>
