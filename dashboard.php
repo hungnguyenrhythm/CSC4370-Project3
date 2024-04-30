@@ -49,6 +49,7 @@ if(!$conn->query($sql) === TRUE) {
 }
 $conn->close();
 function addProperty(){
+	$SELLER = $_SESSION["username"];
 	$conn = connect();
 	if (isset($_POST["address"]) and isset($_POST["city"])
 	and isset($_POST["state"]) and isset($_POST["zip"])
@@ -66,8 +67,8 @@ function addProperty(){
 		$acquisition = $_POST["acquisition"];
 		$extra = $_POST["extra"];
 	}
-	$sql = "INSERT INTO PROPERTYDATA (address, city, state, zip, price, beds, baths, age, acquiredDate, extra) 
-	VALUES (\"$street\", \"$city\", \"$state\", \"$zip\", \"$price\", $beds, $baths, $age, \"$acquisition\", \"$extra\")";
+	$sql = "INSERT INTO PROPERTYDATA (username, address, city, state, zip, price, beds, baths, age, acquiredDate, extra) 
+	VALUES (\"$SELLER\",\"$street\", \"$city\", \"$state\", \"$zip\", \"$price\", $beds, $baths, $age, \"$acquisition\", \"$extra\")";
 	if($conn->query($sql) === TRUE){
 		echo "working";
 	} else {
@@ -141,7 +142,7 @@ if (isset($_POST["submit"])) {
 		</nav>
 		<div>
 			<form method="post" action="./dashboard.php">
-			<button id="Cancel" onclick="cancel()">Cancel</button>
+			<button id="Cancel" onclick="cancel()">Cancel</button><br>
 			<input type="submit"name="signOut" value="Sign Out">
 			</form>
 		</div>
